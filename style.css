@@ -102,7 +102,7 @@ body::before {
     border-radius: 16px;
     background-color: #FFF;
     border: none;
-    color: #1875E8;
+    color: #FFF;
     padding: 2rem;
     font-size: 24px;
     font-weight: 700;
@@ -123,6 +123,12 @@ h1 {
 p,
 button {
     font-family: 'Inter', sans-serif;
+}
+
+.erro {
+    font-size: 32px;
+    font-weight: 400;
+    color: #ff0000
 }
 
 .texto__paragrafo {

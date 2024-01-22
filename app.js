@@ -3,6 +3,7 @@ let limite = 100;
 let numeroSecreto = gerarNumero();
 let tentativas = 1;
 let mensagemInstrucao = `Insira um número entre 1 e ${limite}.`
+let mensagemErro = `O número é entre 1 e ${limite}.`
 
 function exibirTexto(tag, texto){;
     let campo = document.querySelector(tag);
@@ -26,18 +27,24 @@ function verificarChute(){
         document.getElementById('reiniciar').removeAttribute('disabled');
         document.getElementById('chutar').setAttribute('disabled', true);
         document.getElementById('titulo').classList.add('huerot');
+        document.getElementById('frase').classList.remove('erro');
         const audio = new Audio('levelup.mp3');
         audio.play();
+
+    } else{ if(chute > limite){
+        exibirTexto('p', mensagemErro);
+        document.getElementById('frase').classList.add('erro');
+        const audio2 = new Audio('hmm.mp3');
+        audio2.play();
 
     } else{
         chute > numeroSecreto? exibirTexto('p', 'O número é menor.') : exibirTexto('p', 'O número é maior.')
         tentativas++;
         limparEntrada();
+        document.getElementById('frase').classList.remove('erro');
         const audio2 = new Audio('hmm.mp3');
         audio2.play();
-
-     }
-}
+    }}}
 
 function gerarNumero(){
     let numeroEscolhido = parseInt(Math.random() * limite + 1);
@@ -70,6 +77,9 @@ function reiniciarJogo(){
     limparEntrada();
     mensagemInicial();
     
+    const audio3 = new Audio('meow.mp3');
+    audio3.play();
+
 }
 
 
