@@ -15,6 +15,13 @@ function mensagemInicial(){
     exibirTexto('p', mensagemInstrucao);
 } mensagemInicial();
 
+function validarEntrada(event){
+    const tecla = event.key;
+    if (isNaN(tecla) && tecla !== 'Backspace' && tecla !== 'Enter') {
+        event.preventDefault();
+    }
+}
+
 function verificarChute(){
     let chute = document.querySelector('input').value;
     console.log(chute == numeroSecreto);
